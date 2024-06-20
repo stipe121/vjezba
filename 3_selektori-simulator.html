@@ -1,0 +1,71 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+p#unos {padding: 20px; font-size: 25px; border:1px solid gray}
+ol {font-family:Verdana, Geneva, sans-serif;}
+.red {color: red;}
+.roman {font-style: italic;}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+function runJs(){
+	$('.red').removeClass('red');
+	var selector = $('p')[0].innerText; //sam innerHTML cita vrijednost
+	$(selector).addClass('red');
+}
+
+</script>
+
+<title>jQuery Selector Tester</title>
+</head>
+
+<body>
+<p id="unos" contenteditable="true">
+li
+</p>
+<input type="submit" onClick="runJs();">
+<div> prvi </div>
+<h2>Dohvati:</h2>
+<ol>
+	<li>Prvi li </li> <!-- li:first --> 
+	<li>DRUGI li koji ima <span class="roman">span</span> untuar sebe</li> <!-- li:nth(1) span, ne može li span -->
+	<li class="myClass">Li koji  <span class="roman"> gg</span>na sebi ima klasu &quot;myClass&quot;</li> <!-- li.myClass, ne može li .myClass --> 
+	
+	<li><span class="roman plava">span koji ima dvije klase na sebi klasa roman i klasa plava</span></li> <!-- span.roman.plava -->
+	<li>cijelu ul listu unutar jednog li elementa <!-- li > ul-->
+		<ul>
+			<li>prva dva li child elementa</li> <!--  li:lt(2ul)   -->
+			
+			<li>zadnji zadnjiii li na ovoj stranici</li> <!-- li:last -->
+			<li>zadnji li unutar svake ul i ol liste</li> <!-- li:last-child -->
+		</ul>
+	</li>
+	<li>Dohvati sve spanove i sve klase myClass</li> <!-- span, .myClass -->
+	<li id="myID">li koji ima id myID </li> <!--  li#myID -->
+	<li>------</li>
+</ol>
+<ul>
+	<li><p class="myClass">------</p></li> 
+	<li><span>------</span><p> ------</p></li>
+	<li>parne li elemente</li> <!-- li:even -->
+	<li>divove koji se nalazi neposredno nakon ul elementa</li> <!-- ul+div -->
+	<li>ul koji se nalaze nakon ol elementa, susjedni su elemetni, što znači da su na istoj razini</li> <!-- ol~ul -->
+</ul>
+<div class="myClass">moj klasa div</div>
+<div class="bzvz">
+	<ul>
+		<li>a ka 1</li> 
+		<li>a ka 2</li>
+	</ul>
+</div>
+<ul>
+	<li>bvz1</li> 
+	<li>bvz2</li>
+    </ul>
+<div> zadnji stvarno </div>
+</body>
+</html>
